@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import type { InlineConfig } from 'vite';
 
 const config: StorybookConfig = {
   "stories": [
@@ -13,6 +14,10 @@ const config: StorybookConfig = {
     "@storybook/addon-onboarding",
     "@storybook/addon-themes"
   ],
-  "framework": "@storybook/react-vite"
+  "framework": "@storybook/react-vite",
+  viteFinal: async (config: InlineConfig) => {
+    config.base = '/kamino-storybook-vytas/';
+    return config;
+  },
 };
 export default config;
