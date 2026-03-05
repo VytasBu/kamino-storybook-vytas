@@ -9,7 +9,7 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
   return (
     <div
       data-slot="table-container"
-      className="relative w-full overflow-x-auto"
+      className="relative w-full overflow-hidden rounded-2xl border"
     >
       <table
         data-slot="table"
@@ -24,7 +24,7 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   return (
     <thead
       data-slot="table-header"
-      className={cn("[&_tr]:border-b", className)}
+      className={cn("bg-muted [&_tr]:border-b", className)}
       {...props}
     />
   )
@@ -107,7 +107,7 @@ function TableHead({
       data-slot="table-head"
       aria-sort={sortable ? (sortDirection === "none" ? undefined : sortDirection) : undefined}
       className={cn(
-        "h-10 px-2 text-left align-middle font-medium whitespace-nowrap text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+        "h-10 px-2 text-left align-middle text-xs font-medium whitespace-nowrap text-muted-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
         firstColumnSpacer && "pl-4",
         className
       )}
@@ -129,7 +129,7 @@ function TableHead({
             onClick={onSort}
           >
             {children}
-            <SortIcon className="size-3.5" />
+            <SortIcon className="size-3" />
           </Button>
         ) : (
           children
@@ -161,7 +161,7 @@ function TableCell({
     <td
       data-slot="table-cell"
       className={cn(
-        "p-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
+        "h-16 px-2 align-middle whitespace-nowrap [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
         firstColumnSpacer && "pl-4",
         className
       )}
